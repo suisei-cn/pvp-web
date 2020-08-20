@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVP Web</title>
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="player"></div>
+        <div id="control"></div>
+    </div>
+
+    <script src="pvp.js"></script>
+    <script>
+        // Set the H/W
+        const fac = 0.5625
+        const size = {
+            width: window.innerWidth || document.body.clientWidth,
+            height: window.innerHeight || document.body.clientHeight
+        }
+        const standardWidth = Math.min(size.height * 0.9 * (1 / fac) * 1.25, size.width * 0.8)
+
+        const url = new URL(window.location);
+        const vid = url.searchParams.get("v") || "vQHVGXdcqEQ"
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: String(standardWidth * fac),
+                width: String(standardWidth),
+                videoId: vid,
+                events: {
+                    'onReady': setupPvp
+                }
+            });
+        }
+
+        function setupPvp() {
+            var pvp = new Pvp({
+                videoId: vid,
+                player,
+                container: document.querySelector("#control")
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
