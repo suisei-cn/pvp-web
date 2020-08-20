@@ -24,11 +24,13 @@
     <script>
         // Set the H/W
         const fac = 0.5625
+        const videoHeightPercent = 0.6
+        const videoWidthPercent = 0.8
         const size = {
             width: window.innerWidth || document.body.clientWidth,
             height: window.innerHeight || document.body.clientHeight
         }
-        const standardWidth = Math.min(size.height * 0.9 * (1 / fac) * 1.25, size.width * 0.8)
+        const standardWidth = Math.min(size.height * videoHeightPercent * (1 / fac) * (1 / videoWidthPercent), size.width * videoWidthPercent)
 
         const url = new URL(window.location);
         const vid = url.searchParams.get("v") || "vQHVGXdcqEQ"
