@@ -1,6 +1,11 @@
 # pvp-web
+
 [Experimental] pvp without extensions.
+
+Note that it's only a minimum example illustrating the feasibility of online video cliping without clients or [userscripts](https://github.com/suisei-cn/pvp). Don't expect it to be working for everyone, let alone working well for anyone.
+
+Reach for [@GeorgeMiao219's project](https://pops.netlify.app/) for a more complete solution.
 
 ## License
 
-This project is licensed over AGPL, but you can also use the project under [The Loyal To Suisei License](https://github.com/suisei-cn/pvp-web/blob/master/LICENSE.alt.md) (LTSL) if you think AGPL is too much of a burden.
+This project is licensed under MIT.
